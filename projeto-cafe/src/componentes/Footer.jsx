@@ -1,0 +1,277 @@
+import {
+  Mail,
+  MapPin,
+  Phone,
+  ArrowUpRight,
+} from "lucide-react";
+
+import torraLogoLight from "../assets/torra-logo-light.png";
+import torraLogoDark from "../assets/torra-logo-dark.png";
+import torraLogoCoffee from "../assets/torra-logo-coffee.png";
+
+import "./Footer.css";
+
+export default function Footer({
+  onProdutosClick,
+  onCategoriaClick,
+  onSobreClick,
+  theme,
+}) {
+  const currentYear =
+    new Date().getFullYear();
+
+  const logos = {
+    light: torraLogoLight,
+    dark: torraLogoDark,
+    coffee: torraLogoCoffee,
+  };
+
+  const currentLogo =
+    logos[theme] ||
+    torraLogoLight;
+
+  return (
+    <footer className="footer">
+
+      <div className="footer-inner">
+
+        {/* MARCA */}
+
+        <div className="footer-brand">
+
+          <button
+            type="button"
+            className="footer-logo"
+            onClick={onProdutosClick}
+            aria-label="Torra"
+          >
+            <img
+              src={currentLogo}
+              alt="Torra"
+            />
+          </button>
+
+          <p className="footer-description">
+            Café, preparo e acessórios
+            para transformar cada xícara
+            em um momento especial.
+          </p>
+
+          <div className="footer-socials">
+
+            <a
+              href="#"
+              className="footer-social"
+              aria-label="Instagram"
+            >
+              <span className="footer-social-icon">
+                ig
+              </span>
+
+              Instagram
+            </a>
+
+            <a
+              href="#"
+              className="footer-social"
+              aria-label="Facebook"
+            >
+              <span className="footer-social-icon">
+                f
+              </span>
+
+              Facebook
+            </a>
+
+            <a
+              href="#"
+              className="footer-social"
+              aria-label="GitHub"
+            >
+              <span className="footer-social-icon">
+                gh
+              </span>
+
+              GitHub
+            </a>
+
+          </div>
+
+        </div>
+
+
+        {/* LOJA */}
+
+        <div className="footer-column">
+
+          <h3>Loja</h3>
+
+          {/* TODOS OS PRODUTOS */}
+
+          <button
+            type="button"
+            onClick={onProdutosClick}
+          >
+            Produtos
+          </button>
+
+          {/* GRÃOS */}
+
+          <button
+            type="button"
+            onClick={() =>
+              onCategoriaClick("Grãos")
+            }
+          >
+            Grãos
+          </button>
+
+          {/* EQUIPAMENTOS */}
+
+          <button
+            type="button"
+            onClick={() =>
+              onCategoriaClick(
+                "Equipamentos"
+              )
+            }
+          >
+            Equipamentos
+          </button>
+
+          {/* ACESSÓRIOS */}
+
+          <button
+            type="button"
+            onClick={() =>
+              onCategoriaClick(
+                "Acessórios"
+              )
+            }
+          >
+            Acessórios
+          </button>
+
+        </div>
+
+
+        {/* INSTITUCIONAL */}
+
+        <div className="footer-column">
+
+          <h3>Institucional</h3>
+
+          <button
+            type="button"
+            onClick={onSobreClick}
+          >
+            Sobre nós
+          </button>
+
+          <button
+            type="button"
+            onClick={onProdutosClick}
+          >
+            Nossa loja
+          </button>
+
+          <a href="#">
+            Termos de uso
+          </a>
+
+          <a href="#">
+            Privacidade
+          </a>
+
+        </div>
+
+
+        {/* ATENDIMENTO */}
+
+        <div className="footer-column footer-contact">
+
+          <h3>Atendimento</h3>
+
+          <a href="mailto:contato@torra.com">
+            <Mail
+              size={15}
+              strokeWidth={1.7}
+            />
+
+            <span>
+              contato@torra.com
+            </span>
+          </a>
+
+          <a href="tel:+5500000000000">
+            <Phone
+              size={15}
+              strokeWidth={1.7}
+            />
+
+            <span>
+              (00) 00000-0000
+            </span>
+          </a>
+
+          <div className="footer-contact-item">
+
+            <MapPin
+              size={15}
+              strokeWidth={1.7}
+            />
+
+            <span>
+              Brasil
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      {/* RODAPÉ */}
+
+      <div className="footer-bottom">
+
+        <div className="footer-bottom-inner">
+
+          <p>
+            © {currentYear} Torra.
+            Todos os direitos reservados.
+          </p>
+
+          <p>
+            Projeto autoral desenvolvido
+            para fins de demonstração.
+          </p>
+
+          <a
+            href="#"
+            className="footer-back-top"
+            onClick={(event) => {
+              event.preventDefault();
+
+              window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+              });
+            }}
+          >
+            Voltar ao topo
+
+            <ArrowUpRight
+              size={14}
+              strokeWidth={1.7}
+            />
+          </a>
+
+        </div>
+
+      </div>
+
+    </footer>
+  );
+}
