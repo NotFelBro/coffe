@@ -484,6 +484,8 @@ export default function PromoCarousel({
 
         </div>
 
+      </div>
+
 
         {/* =============================================
             SETA ESQUERDA
@@ -610,8 +612,6 @@ export default function PromoCarousel({
           ).padStart(2, "0")}
 
         </span>
-
-      </div>
 
       </div>
 
