@@ -3,37 +3,126 @@ import { X, Plus, Minus, Heart } from "lucide-react";
 import ProductIcon from "./ProductIcon";
 import { money } from "../utils/format";
 
-export default function ProductDetail({ product, onClose, onAdd, isFavorite, onToggleFavorite }) {
+export default function ProductDetail({
+  product,
+  onClose,
+  onAdd,
+  isFavorite,
+  onToggleFavorite,
+}) {
   const [qty, setQty] = useState(1);
+
   if (!product) return null;
 
   return (
     <div className="overlay" onClick={onClose}>
-      <div className="detail-panel" onClick={(e) => e.stopPropagation()}>
-        <button className="overlay-close" onClick={onClose}><X size={18} /></button>
+      <div
+        className="detail-panel"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* BOTÃO FECHAR */}
+        <button
+          className="overlay-close"
+          onClick={onClose}
+          aria-label="Fechar"
+        >
+          <X size={18} />
+        </button>
+
+        {/* IMAGEM DO PRODUTO */}
         <div className="detail-figure">
-          <ProductIcon type={product.icon} className="detail-icon" />
+          <ProductIcon
+            type={product.icon}
+            className="detail-icon"
+          />
         </div>
+
+        {/* INFORMAÇÕES DO PRODUTO */}
         <div className="detail-body">
+
+          {/* CATEGORIA */}
           <div className="detail-head-row">
-            <p className="card-category">{product.category}</p>
+            <p className="card-category">
+              {product.category}
+            </p>
+          </div>
+
+          {/* NOME */}
+          <h2>{product.name}</h2>
+
+          {/* DESCRIÇÃO */}
+          <p className="detail-note">
+            {product.note}
+          </p>
+
+          {/* PREÇO */}
+          <p className="detail-price">
+            {money(product.price)}
+          </p>
+
+          {/* QUANTIDADE */}
+          <div className="qty-row">
             <button
-              className={"favorite-btn inline" + (isFavorite ? " active" : "")}
-              onClick={() => onToggleFavorite(product.id)}
-              aria-label={isFavorite ? "Remover dos favoritos" : "Adicionar aos favoritos"}
+              className="qty-btn"
+              onClick={() =>
+                setQty((q) => Math.max(1, q - 1))
+              }
+              aria-label="Diminuir quantidade"
             >
-              <Heart size={16} strokeWidth={1.8} fill={isFavorite ? "currentColor" : "none"} />
+              <Minus size={14} />
+            </button>
+
+            <span className="qty-value">
+              {qty}
+            </span>
+
+            <button
+              className="qty-btn"
+              onClick={() =>
+                setQty((q) => q + 1)
+              }
+              aria-label="Aumentar quantidade"
+            >
+              <Plus size={14} />
             </button>
           </div>
-          <h2>{product.name}</h2>
-          <p className="detail-note">{product.note}</p>
-          <p className="detail-price">{money(product.price)}</p>
-          <div className="qty-row">
-            <button className="qty-btn" onClick={() => setQty((q) => Math.max(1, q - 1))}><Minus size={14} /></button>
-            <span className="qty-value">{qty}</span>
-            <button className="qty-btn" onClick={() => setQty((q) => q + 1)}><Plus size={14} /></button>
-          </div>
+
+          {/* FAVORITO */}
           <button
+            type="button"
+            className={
+              "favorite-detail-btn" +
+              (isFavorite ? " active" : "")
+            }
+            onClick={() =>
+              onToggleFavorite(product.id)
+            }
+            aria-label={
+              isFavorite
+                ? "Remover dos favoritos"
+                : "Adicionar aos favoritos"
+            }
+          >
+            <Heart
+              size={17}
+              strokeWidth={1.8}
+              fill={
+                isFavorite
+                  ? "currentColor"
+                  : "none"
+              }
+            />
+
+            <span>
+              {isFavorite
+                ? "Remover dos favoritos"
+                : "Adicionar aos favoritos"}
+            </span>
+          </button>
+
+          {/* ADICIONAR À SACOLA */}
+          <button
+            type="button"
             className="btn-primary"
             onClick={() => {
               onAdd(product, qty);
