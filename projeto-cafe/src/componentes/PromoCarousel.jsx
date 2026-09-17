@@ -341,6 +341,8 @@ export default function PromoCarousel({
       }
     >
 
+      <div className="promo-frame">
+
       <div
         key={slide.id}
         className={`
@@ -608,6 +610,8 @@ export default function PromoCarousel({
           ).padStart(2, "0")}
 
         </span>
+
+      </div>
 
       </div>
 

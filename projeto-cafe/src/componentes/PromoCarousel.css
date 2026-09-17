@@ -2,44 +2,51 @@
   width: 100%;
   padding: 18px 24px 0;
   box-sizing: border-box;
+  overflow: hidden;
+  touch-action: pan-y;
+}
+
+/*
+  O frame mantém o espaço do banner estável.
+  O slide fica absoluto dentro dele, então a animação
+  não altera a altura/largura da página.
+*/
+.promo-frame {
+  position: relative;
+  width: min(1280px, 100%);
+  height: 430px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 20px;
 }
 
 .promo-slide {
-  width: min(1280px, 100%);
-  min-height: 430px;
-  margin: 0 auto;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  margin: 0;
+  box-sizing: border-box;
 
-  position: relative;
   overflow: hidden;
 
   display: flex;
   align-items: center;
 
   color: #f7f1e8;
-
   background: #21170f;
-
   border-radius: 20px;
 
   box-shadow:
     0 18px 50px rgba(24, 20, 15, 0.13);
 
   animation:
-    promo-slide-in
-    0.55s
-    ease;
-}
-
-@keyframes promo-slide-in {
-  from {
-    opacity: 0.65;
-    transform: translateY(5px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    promo-slide-next
+    0.65s
+    cubic-bezier(0.22, 1, 0.36, 1);
+  animation-fill-mode: both;
+  will-change: transform, opacity;
 }
 
 /* ================================
@@ -977,8 +984,12 @@
       0;
   }
 
+  .promo-frame {
+    height: 410px;
+  }
+
   .promo-slide {
-    min-height: 410px;
+    height: 100%;
   }
 
   .promo-content {
@@ -1038,9 +1049,13 @@
       0;
   }
 
-  .promo-slide {
-    min-height: 510px;
+  .promo-frame {
+    height: 510px;
+    border-radius: 16px;
+  }
 
+  .promo-slide {
+    height: 100%;
     align-items: flex-start;
 
     border-radius: 16px;
@@ -1139,8 +1154,12 @@
 ================================ */
 
 @media (max-width: 420px) {
+  .promo-frame {
+    height: 485px;
+  }
+
   .promo-slide {
-    min-height: 485px;
+    height: 100%;
   }
 
   .promo-content {
@@ -1190,58 +1209,21 @@
 }
 
 /* =====================================================
-   UPGRADE DA ANIMAÇÃO DO CARROSSEL
-===================================================== */
-
-.promo-slide {
-  animation-duration: 0.75s;
-  animation-timing-function: cubic-bezier(
-    0.22,
-    1,
-    0.36,
-    1
-  );
-
-  animation-fill-mode: both;
-
-  will-change:
-    transform,
-    opacity;
-}
-
-
-/* =====================================================
-   ENTRADA PELA DIREITA
-===================================================== */
+   ANIMAÇÃO ESTÁVEL DO CARROSSEL
+   ===================================================== */
 
 .promo-slide-next {
-  animation-name:
-    promo-slide-next;
+  animation-name: promo-slide-next;
 }
-
-
-/* =====================================================
-   ENTRADA PELA ESQUERDA
-===================================================== */
 
 .promo-slide-previous {
-  animation-name:
-    promo-slide-previous;
+  animation-name: promo-slide-previous;
 }
-
-
-/* =====================================================
-   MOVIMENTO PRINCIPAL
-===================================================== */
 
 @keyframes promo-slide-next {
-
   0% {
     opacity: 0;
-
-    transform:
-      translateX(42px)
-      scale(0.985);
+    transform: translate3d(42px, 0, 0) scale(0.985);
   }
 
   45% {
@@ -1250,23 +1232,14 @@
 
   100% {
     opacity: 1;
-
-    transform:
-      translateX(0)
-      scale(1);
+    transform: translate3d(0, 0, 0) scale(1);
   }
-
 }
-
 
 @keyframes promo-slide-previous {
-
   0% {
     opacity: 0;
-
-    transform:
-      translateX(-42px)
-      scale(0.985);
+    transform: translate3d(-42px, 0, 0) scale(0.985);
   }
 
   45% {
@@ -1275,351 +1248,30 @@
 
   100% {
     opacity: 1;
-
-    transform:
-      translateX(0)
-      scale(1);
+    transform: translate3d(0, 0, 0) scale(1);
   }
-
 }
 
-
-/* =====================================================
-   TEXTO
-===================================================== */
-
-.promo-slide .promo-content {
-  animation:
-    promo-content-enter
-    0.8s
-    cubic-bezier(
-      0.22,
-      1,
-      0.36,
-      1
-    )
-    both;
-}
-
-
-@keyframes promo-content-enter {
-
-  0% {
-    opacity: 0;
-
-    transform:
-      translateY(18px);
-  }
-
-  100% {
-    opacity: 1;
-
-    transform:
-      translateY(0);
-  }
-
-}
-
-
-/* =====================================================
-   PEQUENO ATRASO NO EYEBROW
-===================================================== */
-
-.promo-slide .promo-eyebrow {
-  animation:
-    promo-eyebrow-enter
-    0.65s
-    ease
-    both;
-
-  animation-delay:
-    0.08s;
-}
-
-
-@keyframes promo-eyebrow-enter {
-
-  from {
-    opacity: 0;
-
-    transform:
-      translateY(8px);
-  }
-
-  to {
-    opacity: 1;
-
-    transform:
-      translateY(0);
-  }
-
-}
-
-
-/* =====================================================
-   TÍTULO
-===================================================== */
-
-.promo-slide .promo-title {
-  animation:
-    promo-title-enter
-    0.8s
-    cubic-bezier(
-      0.22,
-      1,
-      0.36,
-      1
-    )
-    both;
-
-  animation-delay:
-    0.12s;
-}
-
-
-@keyframes promo-title-enter {
-
-  from {
-    opacity: 0;
-
-    transform:
-      translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-
-    transform:
-      translateY(0);
-  }
-
-}
-
-
-/* =====================================================
-   DESCRIÇÃO
-===================================================== */
-
-.promo-slide .promo-description {
-  animation:
-    promo-description-enter
-    0.7s
-    ease
-    both;
-
-  animation-delay:
-    0.2s;
-}
-
-
-@keyframes promo-description-enter {
-
-  from {
-    opacity: 0;
-
-    transform:
-      translateY(12px);
-  }
-
-  to {
-    opacity: 1;
-
-    transform:
-      translateY(0);
-  }
-
-}
-
-
-/* =====================================================
-   BOTÃO
-===================================================== */
-
-.promo-slide .promo-button {
-  animation:
-    promo-button-enter
-    0.7s
-    cubic-bezier(
-      0.22,
-      1,
-      0.36,
-      1
-    )
-    both;
-
-  animation-delay:
-    0.28s;
-}
-
-
-@keyframes promo-button-enter {
-
-  from {
-    opacity: 0;
-
-    transform:
-      translateY(12px)
-      scale(0.97);
-  }
-
-  to {
-    opacity: 1;
-
-    transform:
-      translateY(0)
-      scale(1);
-  }
-
-}
-
-
-/* =====================================================
-   ÁREA VISUAL
-===================================================== */
-
+/*
+  A área visual não recebe mais animação de transform aqui.
+  Isso evita conflito com os transforms responsivos do celular.
+*/
 .promo-slide .promo-visual {
-  animation:
-    promo-visual-enter
-    0.95s
-    cubic-bezier(
-      0.22,
-      1,
-      0.36,
-      1
-    )
-    both;
-
-  animation-delay:
-    0.05s;
+  animation: none;
 }
 
-
-@keyframes promo-visual-enter {
-
-  from {
-    opacity: 0;
-
-    transform:
-      translateX(35px)
-      scale(0.97);
-  }
-
-  to {
-    opacity: 1;
-
-    transform:
-      translateX(0)
-      scale(1);
-  }
-
-}
-
-
-/* =====================================================
-   ÍCONE DO BANNER
-===================================================== */
-
-.promo-slide .promo-icon-badge {
-  animation:
-    promo-badge-enter
-    0.8s
-    cubic-bezier(
-      0.22,
-      1,
-      0.36,
-      1
-    )
-    both;
-
-  animation-delay:
-    0.35s;
-}
-
-
-@keyframes promo-badge-enter {
-
-  from {
-    opacity: 0;
-
-    transform:
-      scale(0.75)
-      rotate(-8deg);
-  }
-
-  to {
-    opacity: 1;
-
-    transform:
-      scale(1)
-      rotate(0);
-  }
-
-}
-
-
-/* =====================================================
-   SETAS
-===================================================== */
-
-.promo-arrow {
-  transition:
-    transform 0.25s ease,
-    opacity 0.25s ease,
-    background 0.25s ease;
-}
-
-
+/* Mantém as setas centralizadas mesmo durante o hover. */
 .promo-arrow-left:hover {
-  transform:
-    translateX(-3px);
+  transform: translateY(-50%) translateX(-3px);
 }
-
 
 .promo-arrow-right:hover {
-  transform:
-    translateX(3px);
+  transform: translateY(-50%) translateX(3px);
 }
 
-
-/* =====================================================
-   DOTS
-===================================================== */
-
-.promo-dot {
-  transition:
-    width 0.3s ease,
-    opacity 0.3s ease,
-    transform 0.3s ease;
-}
-
-
-.promo-dot:hover {
-  transform:
-    scale(1.15);
-}
-
-
-/* =====================================================
-   ACESSIBILIDADE
-===================================================== */
-
-@media (
-  prefers-reduced-motion: reduce
-) {
-
-  .promo-slide,
-  .promo-slide .promo-content,
-  .promo-slide .promo-eyebrow,
-  .promo-slide .promo-title,
-  .promo-slide .promo-description,
-  .promo-slide .promo-button,
-  .promo-slide .promo-visual,
-  .promo-slide .promo-icon-badge {
-    animation:
-      none !important;
-
-    transition:
-      none !important;
+@media (prefers-reduced-motion: reduce) {
+  .promo-slide {
+    animation: none !important;
+    transform: none !important;
   }
-
 }
