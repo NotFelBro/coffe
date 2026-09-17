@@ -1275,3 +1275,460 @@
     transform: none !important;
   }
 }
+
+
+/* =========================================================
+   RESPONSIVIDADE FINAL — MOBILE / TABLET / NOTEBOOK
+   Base atual preservada para desktop.
+   Os ajustes abaixo entram somente nos breakpoints menores.
+   ========================================================= */
+
+/* TABLETS — 768px a 1023px */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .promo-carousel {
+    padding: 14px 20px 0;
+  }
+
+  .promo-frame {
+    width: 100%;
+    height: 400px;
+    border-radius: 18px;
+  }
+
+  .promo-content {
+    width: 57%;
+    padding: 42px 20px 56px 44px;
+  }
+
+  .promo-eyebrow {
+    margin-bottom: 13px;
+    font-size: 10px;
+  }
+
+  .promo-title {
+    max-width: 430px;
+    font-size: clamp(34px, 5vw, 48px);
+  }
+
+  .promo-description {
+    max-width: 355px;
+    margin-bottom: 22px;
+    font-size: 12px;
+    line-height: 1.55;
+  }
+
+  .promo-button {
+    padding: 11px 17px;
+    font-size: 12px;
+  }
+
+  .promo-visual {
+    width: 45%;
+  }
+
+  .promo-coffee-scene {
+    right: -35px;
+    top: 42px;
+    transform: scale(0.72);
+    transform-origin: center right;
+  }
+
+  .promo-icon-badge {
+    width: 52px;
+    height: 52px;
+    right: 16px;
+    top: 22px;
+  }
+
+  .promo-arrow {
+    width: 40px;
+    height: 40px;
+  }
+
+  .promo-arrow-left {
+    left: 14px;
+  }
+
+  .promo-arrow-right {
+    right: 14px;
+  }
+
+  .promo-dots {
+    left: 44px;
+    bottom: 20px;
+  }
+
+  .promo-counter {
+    right: 44px;
+    bottom: 20px;
+  }
+}
+
+/* NOTEBOOKS — 1024px a 1279px
+   Mantém o desktop, apenas reduz elementos quando necessário. */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .promo-carousel {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .promo-frame {
+    width: 100%;
+    height: 420px;
+  }
+
+  .promo-content {
+    width: 54%;
+    padding-left: 58px;
+    padding-right: 24px;
+  }
+
+  .promo-title {
+    font-size: clamp(40px, 5vw, 58px);
+  }
+
+  .promo-description {
+    max-width: 430px;
+  }
+
+  .promo-visual {
+    width: 46%;
+  }
+
+  .promo-coffee-scene {
+    right: 5px;
+    transform: scale(0.88);
+    transform-origin: center right;
+  }
+}
+
+/* MOBILE — 481px a 767px */
+@media (min-width: 481px) and (max-width: 767px) {
+  .promo-carousel {
+    padding: 10px 14px 0;
+  }
+
+  .promo-frame {
+    height: 500px;
+    border-radius: 16px;
+  }
+
+  .promo-slide {
+    align-items: flex-start;
+    border-radius: 16px;
+  }
+
+  .promo-content {
+    width: 100%;
+    padding: 38px 26px 205px;
+  }
+
+  .promo-eyebrow {
+    margin-bottom: 12px;
+    font-size: 9px;
+  }
+
+  .promo-title {
+    max-width: 400px;
+    font-size: clamp(34px, 8vw, 42px);
+    line-height: 0.98;
+  }
+
+  .promo-description {
+    max-width: 430px;
+    margin-bottom: 19px;
+    font-size: 12px;
+    line-height: 1.55;
+  }
+
+  .promo-button {
+    padding: 11px 16px;
+    font-size: 12px;
+  }
+
+  .promo-visual {
+    width: 100%;
+    height: 220px;
+    top: auto;
+    bottom: 0;
+    pointer-events: none;
+  }
+
+  .promo-coffee-scene {
+    top: -18px;
+    right: 50%;
+    transform: translateX(50%) scale(0.60);
+    transform-origin: center bottom;
+  }
+
+  .promo-icon-badge {
+    display: none;
+  }
+
+  .promo-arrow {
+    width: 36px;
+    height: 36px;
+  }
+
+  .promo-arrow-left {
+    left: 11px;
+  }
+
+  .promo-arrow-right {
+    right: 11px;
+  }
+
+  .promo-dots {
+    left: 26px;
+    bottom: 16px;
+  }
+
+  .promo-counter {
+    right: 26px;
+    bottom: 17px;
+  }
+}
+
+/* IPHONE 14 PRO E OUTROS CELULARES — até 480px */
+@media (max-width: 480px) {
+  .promo-carousel {
+    width: 100%;
+    padding: 8px 12px 0;
+    overflow: hidden;
+  }
+
+  .promo-frame {
+    width: 100%;
+    height: 488px;
+    border-radius: 15px;
+  }
+
+  .promo-slide {
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    align-items: flex-start;
+    border-radius: 15px;
+  }
+
+  .promo-content {
+    width: 100%;
+    min-width: 0;
+    padding: 34px 21px 190px;
+  }
+
+  .promo-eyebrow {
+    max-width: calc(100% - 46px);
+    margin-bottom: 10px;
+    font-size: 8.5px;
+    line-height: 1.3;
+    letter-spacing: 0.16em;
+  }
+
+  .promo-title {
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 15px;
+    font-size: clamp(31px, 9.2vw, 37px);
+    line-height: 0.98;
+    letter-spacing: -0.04em;
+    overflow-wrap: break-word;
+  }
+
+  .promo-description {
+    width: 100%;
+    max-width: 285px;
+    margin-bottom: 17px;
+    font-size: 11.5px;
+    line-height: 1.5;
+  }
+
+  .promo-button {
+    max-width: calc(100% - 12px);
+    padding: 10px 14px;
+    gap: 8px;
+    font-size: 11.5px;
+    white-space: nowrap;
+  }
+
+  .promo-visual {
+    width: 100%;
+    height: 198px;
+    right: 0;
+    top: auto;
+    bottom: 0;
+    pointer-events: none;
+    overflow: visible;
+  }
+
+  .promo-coffee-scene {
+    width: 440px;
+    height: 330px;
+    top: -20px;
+    right: 50%;
+    transform: translateX(50%) scale(0.53);
+    transform-origin: center bottom;
+  }
+
+  .promo-glow {
+    width: 250px;
+    height: 250px;
+    right: 50%;
+    top: -5px;
+    transform: translateX(50%);
+  }
+
+  .promo-icon-badge {
+    display: none;
+  }
+
+  .promo-decoration-one {
+    width: 130px;
+    height: 130px;
+    right: -65px;
+    top: 45px;
+  }
+
+  .promo-decoration-two {
+    width: 190px;
+    height: 190px;
+    right: -95px;
+    top: 0;
+  }
+
+  .promo-decoration-three {
+    width: 60px;
+    height: 60px;
+    left: 8px;
+    bottom: 18px;
+  }
+
+  .promo-arrow {
+    width: 34px;
+    height: 34px;
+    z-index: 20;
+  }
+
+  .promo-arrow-left {
+    left: 9px;
+  }
+
+  .promo-arrow-right {
+    right: 9px;
+  }
+
+  .promo-dots {
+    left: 21px;
+    bottom: 14px;
+    gap: 5px;
+  }
+
+  .promo-dot {
+    width: 17px;
+    height: 3px;
+  }
+
+  .promo-dot.active {
+    width: 29px;
+  }
+
+  .promo-counter {
+    right: 21px;
+    bottom: 15px;
+    font-size: 9px;
+  }
+}
+
+/* CELULARES MUITO PEQUENOS — 320px a 359px */
+@media (max-width: 359px) {
+  .promo-carousel {
+    padding-left: 9px;
+    padding-right: 9px;
+  }
+
+  .promo-frame {
+    height: 465px;
+    border-radius: 14px;
+  }
+
+  .promo-content {
+    padding: 30px 17px 178px;
+  }
+
+  .promo-eyebrow {
+    font-size: 7.5px;
+  }
+
+  .promo-title {
+    max-width: 245px;
+    font-size: 29px;
+  }
+
+  .promo-description {
+    max-width: 235px;
+    font-size: 10.5px;
+  }
+
+  .promo-button {
+    padding: 9px 12px;
+    font-size: 10.5px;
+  }
+
+  .promo-visual {
+    height: 182px;
+  }
+
+  .promo-coffee-scene {
+    transform: translateX(50%) scale(0.47);
+  }
+
+  .promo-arrow {
+    width: 31px;
+    height: 31px;
+  }
+
+  .promo-arrow-left {
+    left: 7px;
+  }
+
+  .promo-arrow-right {
+    right: 7px;
+  }
+
+  .promo-dots {
+    left: 17px;
+    bottom: 12px;
+  }
+
+  .promo-counter {
+    right: 17px;
+    bottom: 13px;
+  }
+}
+
+/* GARANTIA CONTRA ESTOURO HORIZONTAL EM QUALQUER MOBILE */
+@media (max-width: 767px) {
+  .promo-carousel,
+  .promo-frame,
+  .promo-slide {
+    max-width: 100%;
+  }
+
+  .promo-slide {
+    overflow: hidden;
+  }
+
+  .promo-content,
+  .promo-visual {
+    box-sizing: border-box;
+  }
+
+  .promo-title,
+  .promo-description {
+    overflow-wrap: anywhere;
+  }
+
+  .promo-arrow {
+    flex-shrink: 0;
+  }
+}
