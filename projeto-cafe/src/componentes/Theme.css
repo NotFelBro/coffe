@@ -1104,129 +1104,1418 @@ html[data-theme="coffee"]
 }
 
 /* =========================================================
-   RESPONSIVIDADE FINAL DO THEME
-   Mobile / Tablet / Notebook
-   Desktop (1280px+) permanece como está.
+   TORRA — RESPONSIVIDADE COMPLETA
+   Mobile: 320–767px
+   Tablet: 768–1023px
+   Notebook: 1024–1279px
+   Desktop >= 1280px permanece como a versão PC
    ========================================================= */
 
-/* TABLETS — 768px a 1023px */
+html,
+body,
+#root,
+.app {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: hidden;
+}
+
+button,
+a,
+input,
+textarea,
+select {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* =========================================================
+   NOTEBOOK / DESKTOP MENOR — 1024px a 1279px
+   ========================================================= */
+@media (max-width: 1279px) {
+  .header {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+    gap: 14px !important;
+  }
+
+  .wordmark {
+    width: 112px !important;
+  }
+
+  .wordmark img {
+    width: 108px !important;
+  }
+
+  .header-right {
+    gap: 10px !important;
+  }
+
+  .search-box {
+    width: 175px !important;
+  }
+
+  .search-box:focus-within {
+    width: 200px !important;
+  }
+
+  .catalog-section,
+  .hero,
+  .page-wrap,
+  .checkout-wrap {
+    max-width: 1180px;
+  }
+
+  .catalog-layout {
+    gap: 18px;
+  }
+
+  .catalog-sidebar {
+    width: 220px;
+    flex-basis: 220px;
+  }
+
+  .grid {
+    gap: 16px;
+  }
+}
+
+/* =========================================================
+   TABLET — 768px a 1023px
+   ========================================================= */
 @media (min-width: 768px) and (max-width: 1023px) {
-  html,
-  body {
-    max-width: 100%;
-    overflow-x: hidden;
+  .header {
+    flex-wrap: wrap !important;
+    padding: 10px 20px !important;
+    gap: 10px !important;
   }
 
-  .container,
-  .page-container,
-  .main-container,
-  .content-container {
+  .wordmark {
+    width: 105px !important;
+    height: 44px !important;
+  }
+
+  .wordmark img {
+    width: 100px !important;
+  }
+
+  .nav-links {
+    display: flex !important;
+    gap: 0 !important;
+    order: 3;
     width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
+    justify-content: center;
+    border-top: 1px solid var(--theme-border);
+    padding-top: 7px;
   }
 
-  button,
-  input,
-  select,
-  textarea {
-    max-width: 100%;
+  .nav-link {
+    padding: 7px 12px !important;
+    font-size: 12.5px !important;
   }
 
-  img,
-  svg {
-    max-width: 100%;
+  .header-right {
+    margin-left: auto;
+    gap: 8px !important;
+  }
+
+  .search-box {
+    width: 155px !important;
+  }
+
+  .search-box:focus-within {
+    width: 175px !important;
+  }
+
+  .theme-switcher {
+    width: 104px !important;
+    height: 38px !important;
+  }
+
+  .theme-option-inner {
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  .icon-btn-label {
+    display: none !important;
+  }
+
+  .hero {
+    grid-template-columns: 1.1fr .9fr !important;
+    gap: 24px !important;
+    padding: 42px 24px 32px !important;
+  }
+
+  .hero h1 {
+    font-size: 34px !important;
+  }
+
+  .hero-icon {
+    width: 135px !important;
+    height: 135px !important;
+  }
+
+  .catalog-heading {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+
+  .catalog-layout {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+    gap: 16px !important;
+  }
+
+  .catalog-sidebar {
+    width: 205px !important;
+    flex-basis: 205px !important;
+    padding: 20px 15px !important;
+  }
+
+  .catalog-products .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 16px !important;
+  }
+
+  .page-wrap {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+
+  .checkout-wrap {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+
+  .checkout-grid {
+    gap: 24px !important;
+  }
+
+  .footer-inner {
+    width: min(100% - 48px, 1180px) !important;
+    grid-template-columns: 1.5fr repeat(3, 1fr) !important;
+    gap: 28px !important;
+    padding-top: 48px !important;
+    padding-bottom: 44px !important;
+  }
+
+  .footer-bottom-inner {
+    width: min(100% - 48px, 1180px) !important;
   }
 }
 
-/* NOTEBOOK — 1024px a 1279px */
-@media (min-width: 1024px) and (max-width: 1279px) {
-  html,
-  body {
-    max-width: 100%;
-    overflow-x: hidden;
-  }
-
-  .container,
-  .page-container,
-  .main-container,
-  .content-container {
-    box-sizing: border-box;
-    max-width: 100%;
-  }
-}
-
-/* MOBILE — até 767px */
+/* =========================================================
+   MOBILE — até 767px
+   ========================================================= */
 @media (max-width: 767px) {
-  html {
+  .header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1200 !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    padding: 9px 14px !important;
+    gap: 8px !important;
+  }
+
+  .wordmark {
+    width: 92px !important;
+    height: 40px !important;
+  }
+
+  .wordmark img {
+    width: 88px !important;
+  }
+
+  .header-right {
+    min-width: 0;
+    flex: 1 1 auto;
+    margin-left: auto !important;
+    justify-content: flex-end;
+    gap: 6px !important;
+  }
+
+  .search-box {
+    flex: 1 1 auto;
+    width: auto !important;
+    min-width: 105px;
+    max-width: 150px;
+    padding: 6px 9px !important;
+  }
+
+  .search-box:focus-within {
+    width: auto !important;
+    max-width: 155px;
+  }
+
+  .search-box input {
+    min-width: 0;
+    font-size: 12px !important;
+  }
+
+  .theme-switcher {
+    flex: 0 0 auto;
+    width: 90px !important;
+    height: 34px !important;
+  }
+
+  .theme-option-inner {
+    width: 26px !important;
+    height: 26px !important;
+  }
+
+  .theme-option svg {
+    width: 13px !important;
+    height: 13px !important;
+  }
+
+  .theme-option:not(:last-child)::after {
+    top: 7px !important;
+    height: 20px !important;
+  }
+
+  .header-actions {
+    gap: 0 !important;
+    flex: 0 0 auto;
+  }
+
+  .icon-btn {
+    padding: 7px !important;
+    min-width: 34px;
+    min-height: 34px;
+    justify-content: center;
+  }
+
+  .icon-btn-label {
+    display: none !important;
+  }
+
+  /* A navegação continua acessível no celular sem ocupar a primeira linha. */
+  .nav-links {
+    display: flex !important;
+    order: 3;
     width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
+    min-width: 0;
+    justify-content: flex-start !important;
+    gap: 2px !important;
+    padding: 6px 0 0 !important;
+    border-top: 1px solid var(--theme-border) !important;
+    overflow-x: auto;
+    scrollbar-width: none;
   }
 
-  body {
+  .nav-links::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-link {
+    flex: 0 0 auto;
+    padding: 7px 11px !important;
+    font-size: 11.5px !important;
+  }
+
+  /* Hero */
+  .hero {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+    padding: 34px 18px 28px !important;
+    text-align: left !important;
+  }
+
+  .hero-figure {
+    order: -1 !important;
+  }
+
+  .hero-icon {
+    width: 92px !important;
+    height: 92px !important;
+  }
+
+  .hero h1 {
+    font-size: clamp(30px, 9vw, 38px) !important;
+    max-width: 15ch;
+  }
+
+  .hero-sub {
+    font-size: 13.5px !important;
+    line-height: 1.6 !important;
+  }
+
+  /* Catálogo */
+  .catalog-section {
     width: 100%;
-    max-width: 100%;
-    margin: 0;
-    overflow-x: hidden;
+    max-width: none !important;
+    padding-bottom: 0 !important;
   }
 
-  #root {
+  .catalog-heading {
+    padding: 0 16px 16px !important;
+    align-items: flex-start !important;
+    gap: 4px !important;
+  }
+
+  .catalog-heading h2 {
+    font-size: 21px !important;
+  }
+
+  .catalog-result-count {
+    padding-top: 0 !important;
+    font-size: 11px !important;
+  }
+
+  .catalog-layout {
+    display: block !important;
+    padding: 0 0 36px !important;
+  }
+
+  .sidebar-mobile-trigger {
+    display: flex !important;
+    width: calc(100% - 32px) !important;
+    margin: 0 16px 14px !important;
+    min-height: 42px;
+  }
+
+  .catalog-sidebar {
+    width: min(310px, 86vw) !important;
+    max-width: 310px !important;
+    padding: 22px 18px !important;
+  }
+
+  .catalog-products .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+    padding: 0 16px 36px !important;
+  }
+
+  .product-card {
+    min-width: 0;
+    border-radius: 8px;
+  }
+
+  .card-figure {
+    min-height: 145px;
+    padding: 20px !important;
+  }
+
+  .card-icon {
+    width: 72px !important;
+    height: 72px !important;
+  }
+
+  .card-body {
+    padding: 12px 12px 13px !important;
+  }
+
+  .card-name {
+    font-size: 14px !important;
+    line-height: 1.3;
+  }
+
+  .card-note {
+    font-size: 11.5px !important;
+    line-height: 1.4 !important;
+  }
+
+  .card-footer {
+    gap: 8px;
+  }
+
+  .card-price {
+    font-size: 13px !important;
+  }
+
+  .btn-small {
+    min-height: 34px;
+    padding: 7px 9px !important;
+    font-size: 11px !important;
+    white-space: nowrap;
+  }
+
+  .favorite-btn {
+    width: 32px !important;
+    height: 32px !important;
+    top: 8px !important;
+    right: 8px !important;
+  }
+
+  /* Páginas internas */
+  .page-wrap {
     width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
+    padding: 32px 16px 56px !important;
   }
 
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
+  .page-head {
+    margin-bottom: 22px !important;
   }
 
-  img,
-  video,
-  canvas,
-  svg {
-    max-width: 100%;
+  .page-head h1,
+  .narrow-page h1 {
+    font-size: 27px !important;
+    line-height: 1.15 !important;
   }
 
-  button,
-  input,
-  select,
-  textarea {
-    max-width: 100%;
+  .narrow-page {
+    max-width: none !important;
   }
 
-  .container,
-  .page-container,
-  .main-container,
-  .content-container {
+  .empty-state {
+    min-height: 230px;
+    padding: 40px 16px !important;
+  }
+
+  /* Detalhe do produto */
+  .overlay {
+    padding: 12px !important;
+    align-items: center !important;
+  }
+
+  .detail-panel {
+    width: min(100%, 520px) !important;
+    max-height: calc(100dvh - 24px) !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .detail-panel .detail-figure {
+    min-height: 155px !important;
+    height: 155px !important;
+    padding: 20px !important;
+  }
+
+  .detail-panel .detail-icon {
+    width: 92px !important;
+    height: 92px !important;
+  }
+
+  .detail-panel .detail-body {
+    padding: 22px 18px 18px !important;
+  }
+
+  .detail-panel .detail-body h2 {
+    font-size: 22px !important;
+    line-height: 1.15 !important;
+  }
+
+  .detail-panel .detail-note {
+    font-size: 13px !important;
+  }
+
+  .detail-panel .detail-price {
+    font-size: 19px !important;
+  }
+
+  .detail-panel .detail-favorite,
+  .detail-panel .detail-body > .btn-primary {
+    min-height: 42px !important;
+  }
+
+  /* Sacola */
+  .drawer {
+    width: min(100vw, 420px) !important;
+    max-width: 100vw;
+    padding: 18px 16px !important;
+  }
+
+  .drawer-head {
+    margin-bottom: 16px !important;
+  }
+
+  .drawer-item {
+    gap: 10px !important;
+  }
+
+  .drawer-item-icon {
+    width: 44px !important;
+    height: 44px !important;
+  }
+
+  .drawer-item-name {
+    font-size: 13px !important;
+  }
+
+  .drawer-foot {
+    padding-bottom: max(8px, env(safe-area-inset-bottom)) !important;
+  }
+
+  /* Checkout */
+  .checkout-wrap {
     width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
+    padding: 28px 16px 56px !important;
+  }
+
+  .stepper {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    margin-bottom: 26px !important;
+    scrollbar-width: none;
+  }
+
+  .stepper::-webkit-scrollbar {
+    display: none;
+  }
+
+  .step {
+    flex: 0 0 auto;
+    font-size: 11px !important;
+  }
+
+  .step-line {
+    width: 24px !important;
+    margin: 0 7px !important;
+  }
+
+  .checkout-grid {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+
+  .checkout-form h3 {
+    font-size: 18px !important;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  .checkout-summary {
+    padding: 16px !important;
+  }
+
+  /* Footer */
+  .footer {
+    margin-top: 48px !important;
+  }
+
+  .footer-inner {
+    width: calc(100% - 32px) !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 30px 20px !important;
+    padding: 42px 0 38px !important;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+    max-width: none !important;
+  }
+
+  .footer-description {
+    max-width: 330px !important;
+  }
+
+  .footer-socials {
+    gap: 8px !important;
+  }
+
+  .footer-column h3 {
+    font-size: 12px !important;
+  }
+
+  .footer-column button,
+  .footer-column a {
+    font-size: 12px !important;
+  }
+
+  .footer-contact a,
+  .footer-contact-item {
+    gap: 7px !important;
+  }
+
+  .footer-bottom-inner {
+    width: calc(100% - 32px) !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+    padding: 18px 0 22px !important;
+    text-align: center;
+  }
+
+  .footer-bottom-inner p {
+    margin: 0 !important;
+  }
+
+  .footer-back-top {
+    justify-content: center;
   }
 }
 
-/* IPHONE 14 PRO E CELULARES — até 480px */
-@media (max-width: 480px) {
-  body {
-    min-width: 0;
+/* =========================================================
+   IPHONE 14 PRO — 390px x 844px
+   ========================================================= */
+@media (max-width: 420px) {
+  .header {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
   }
 
-  button {
-    min-width: 0;
+  .wordmark {
+    width: 82px !important;
   }
 
-  input,
-  select,
-  textarea {
-    min-width: 0;
+  .wordmark img {
+    width: 80px !important;
+  }
+
+  .header-right {
+    gap: 4px !important;
+  }
+
+  .search-box {
+    min-width: 92px !important;
+    max-width: 122px !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+
+  .search-box input {
+    font-size: 11px !important;
+  }
+
+  .theme-switcher {
+    width: 78px !important;
+    height: 32px !important;
+  }
+
+  .theme-option-inner {
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  .theme-option svg {
+    width: 12px !important;
+    height: 12px !important;
+  }
+
+  .icon-btn {
+    min-width: 32px !important;
+    width: 32px !important;
+    padding: 6px !important;
+  }
+
+  .nav-link {
+    padding-left: 9px !important;
+    padding-right: 9px !important;
+    font-size: 11px !important;
+  }
+
+  .catalog-products .grid {
+    gap: 10px !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  .catalog-heading {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  .sidebar-mobile-trigger {
+    width: calc(100% - 24px) !important;
+    margin-left: 12px !important;
+    margin-right: 12px !important;
+  }
+
+  .card-figure {
+    min-height: 128px !important;
+    padding: 16px !important;
+  }
+
+  .card-icon {
+    width: 62px !important;
+    height: 62px !important;
+  }
+
+  .card-body {
+    padding: 10px 10px 11px !important;
+  }
+
+  .card-category {
+    font-size: 10px !important;
+  }
+
+  .card-name {
+    font-size: 13px !important;
+  }
+
+  .card-note {
+    font-size: 10.5px !important;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .card-price {
+    font-size: 12px !important;
+  }
+
+  .btn-small {
+    min-height: 32px !important;
+    padding: 6px 8px !important;
+    font-size: 10.5px !important;
+  }
+
+  .favorite-btn {
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  .page-wrap {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  .checkout-wrap {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  .detail-panel {
+    width: calc(100vw - 20px) !important;
+    max-height: calc(100dvh - 20px) !important;
+    border-radius: 12px !important;
+  }
+
+  .detail-panel .detail-figure {
+    min-height: 142px !important;
+    height: 142px !important;
+  }
+
+  .detail-panel .detail-icon {
+    width: 82px !important;
+    height: 82px !important;
+  }
+
+  .detail-panel .detail-body {
+    padding: 20px 16px 16px !important;
+  }
+
+  .detail-panel .detail-body h2 {
+    font-size: 20px !important;
+  }
+
+  .footer-inner {
+    width: calc(100% - 24px) !important;
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  .footer-brand,
+  .footer-column {
+    grid-column: auto;
+  }
+
+  .footer-bottom-inner {
+    width: calc(100% - 24px) !important;
   }
 }
 
-/* CELULARES PEQUENOS — até 359px */
+/* =========================================================
+   CELULARES MUITO PEQUENOS — 320px a 359px
+   ========================================================= */
 @media (max-width: 359px) {
-  body {
-    font-size: 14px;
+  .wordmark {
+    width: 72px !important;
   }
+
+  .wordmark img {
+    width: 70px !important;
+  }
+
+  .search-box {
+    min-width: 78px !important;
+    max-width: 100px !important;
+  }
+
+  .theme-switcher {
+    width: 70px !important;
+  }
+
+  .header-actions .icon-btn {
+    min-width: 30px !important;
+    width: 30px !important;
+  }
+
+  .nav-link {
+    padding-left: 7px !important;
+    padding-right: 7px !important;
+  }
+
+  .catalog-products .grid {
+    gap: 8px !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+
+  .catalog-heading {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+
+  .sidebar-mobile-trigger {
+    width: calc(100% - 16px) !important;
+    margin-left: 8px !important;
+    margin-right: 8px !important;
+  }
+
+  .card-body {
+    padding: 9px 8px 10px !important;
+  }
+
+  .card-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-small {
+    width: 100%;
+  }
+}
+
+/* =========================================================
+   SAFE AREA — iPhones com notch / Dynamic Island
+   ========================================================= */
+@supports (padding: max(0px)) {
+  @media (max-width: 767px) {
+    .header {
+      padding-left: max(10px, env(safe-area-inset-left)) !important;
+      padding-right: max(10px, env(safe-area-inset-right)) !important;
+    }
+
+    .drawer {
+      padding-bottom: max(18px, env(safe-area-inset-bottom)) !important;
+    }
+
+    .footer-bottom-inner {
+      padding-bottom: max(22px, env(safe-area-inset-bottom)) !important;
+    }
+  }
+}
+
+/* Cards reais do ProductCard.jsx */
+@media (max-width: 767px) {
+  .card {
+    min-width: 0;
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .card-figure {
+    min-height: 145px;
+    padding: 20px;
+  }
+
+  .card-icon {
+    width: 72px;
+    height: 72px;
+  }
+}
+
+@media (max-width: 420px) {
+  .card-figure {
+    min-height: 128px;
+    padding: 16px;
+  }
+
+  .card-icon {
+    width: 62px;
+    height: 62px;
+  }
+}
+
+@media (max-width: 359px) {
+  .card-figure {
+    min-height: 118px;
+    padding: 13px;
+  }
+
+  .card-icon {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+
+/* =========================================================
+   CORREÇÕES FINAIS — FAVORITO + CHECKOUT RESPONSIVO
+   ========================================================= */
+
+/* Botão de favorito do detalhe do produto */
+.favorite-detail-btn,
+.detail-favorite {
+  width: 100%;
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 14px;
+  margin-bottom: 10px;
+  padding: 0 16px;
+  box-sizing: border-box;
+  color: var(--theme-text-2) !important;
+  background: transparent !important;
+  border: 1px solid var(--theme-border) !important;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    color .25s ease,
+    background-color .25s ease,
+    border-color .25s ease,
+    transform .2s ease,
+    box-shadow .25s ease;
+}
+
+.favorite-detail-btn svg,
+.detail-favorite svg {
+  flex-shrink: 0;
+  color: currentColor !important;
+  transition: transform .25s ease, color .25s ease;
+}
+
+.favorite-detail-btn:hover,
+.detail-favorite:hover {
+  color: var(--theme-text) !important;
+  background: var(--theme-surface-2) !important;
+  border-color: var(--theme-accent) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 16px var(--theme-shadow);
+}
+
+.favorite-detail-btn:hover svg,
+.detail-favorite:hover svg {
+  transform: scale(1.08);
+}
+
+.favorite-detail-btn.active,
+.detail-favorite.active {
+  color: var(--theme-accent) !important;
+  background: var(--theme-accent-soft) !important;
+  border-color: var(--theme-accent) !important;
+}
+
+.favorite-detail-btn.active:hover,
+.detail-favorite.active:hover {
+  color: var(--theme-accent-hover) !important;
+  background: var(--theme-accent-soft) !important;
+  border-color: var(--theme-accent-hover) !important;
+}
+
+html[data-theme="dark"] .favorite-detail-btn,
+html[data-theme="dark"] .detail-favorite {
+  color: #cfc5b8 !important;
+  background: transparent !important;
+  border-color: #4a433b !important;
+}
+
+html[data-theme="dark"] .favorite-detail-btn:hover,
+html[data-theme="dark"] .detail-favorite:hover {
+  color: #f5f0e8 !important;
+  background: var(--theme-surface-2) !important;
+  border-color: var(--theme-accent) !important;
+}
+
+html[data-theme="dark"] .favorite-detail-btn.active,
+html[data-theme="dark"] .detail-favorite.active {
+  color: var(--theme-accent) !important;
+  background: var(--theme-accent-soft) !important;
+  border-color: var(--theme-accent) !important;
+}
+
+html[data-theme="coffee"] .favorite-detail-btn,
+html[data-theme="coffee"] .detail-favorite {
+  color: #d0bdab !important;
+  background: transparent !important;
+  border-color: #5b4637 !important;
+}
+
+html[data-theme="coffee"] .favorite-detail-btn:hover,
+html[data-theme="coffee"] .detail-favorite:hover {
+  color: #f5eadc !important;
+  background: var(--theme-surface-2) !important;
+  border-color: var(--theme-accent) !important;
+}
+
+html[data-theme="coffee"] .favorite-detail-btn.active,
+html[data-theme="coffee"] .detail-favorite.active {
+  color: var(--theme-accent) !important;
+  background: var(--theme-accent-soft) !important;
+  border-color: var(--theme-accent) !important;
+}
+
+/* Checkout: nenhum bloco interno pode criar uma largura maior que a tela. */
+@media (max-width: 767px) {
+  .checkout-wrap,
+  .checkout-grid,
+  .checkout-form,
+  .checkout-card,
+  .checkout-panel,
+  .checkout-summary,
+  .checkout-form > *,
+  .checkout-card > *,
+  .checkout-panel > *,
+  .checkout-summary > * {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .checkout-wrap {
+    overflow-x: hidden !important;
+  }
+
+  .checkout-grid {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .checkout-form,
+  .checkout-summary {
+    min-width: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .checkout-form input,
+  .checkout-form textarea,
+  .checkout-form select,
+  .checkout-form button {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .form-row {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  /* O stepper cabe na tela sem cortar o terceiro passo. */
+  .stepper {
+    display: flex !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  .step {
+    flex: 0 1 auto !important;
+    min-width: 0 !important;
+    white-space: nowrap !important;
+    font-size: 10px !important;
+  }
+
+  .step-line {
+    flex: 1 1 12px !important;
+    width: auto !important;
+    min-width: 10px !important;
+    max-width: 48px !important;
+    margin: 0 5px !important;
+  }
+
+  /* Linhas de produtos/valores não podem empurrar o resumo para fora. */
+  .checkout-summary *,
+  .checkout-card *,
+  .checkout-panel * {
+    min-width: 0 !important;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .checkout-summary p,
+  .checkout-summary span,
+  .checkout-summary strong,
+  .checkout-summary div {
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 420px) {
+  .checkout-wrap {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  .checkout-summary {
+    padding: 14px !important;
+  }
+
+  .step {
+    font-size: 9.5px !important;
+  }
+
+  .step-line {
+    min-width: 7px !important;
+    margin-left: 4px !important;
+    margin-right: 4px !important;
+  }
+
+  .favorite-detail-btn,
+  .detail-favorite {
+    min-height: 42px !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+}
+
+
+/* =========================================================
+   CORREÇÃO FINAL — FAVORITOS + RODAPÉ
+   ========================================================= */
+
+/* -------------------------
+   FAVORITOS
+   ------------------------- */
+
+/* Garante contraste do texto da página de favoritos nos
+   três temas, inclusive quando regras mais específicas
+   do projeto tentarem sobrescrever a cor. */
+.favorites-page {
+  color: var(--theme-text) !important;
+}
+
+.favorites-page h1,
+.favorites-page h2,
+.favorites-page h3 {
+  color: var(--theme-text) !important;
+}
+
+.favorites-page p,
+.favorites-page span,
+.favorites-page .favorites-subtitle,
+.favorites-page .favorites-description,
+.favorites-page .empty-message {
+  color: var(--theme-text-2) !important;
+}
+
+/* O estado vazio deve continuar legível no Dark/Coffee. */
+html[data-theme="dark"] .favorites-page p,
+html[data-theme="dark"] .favorites-page span,
+html[data-theme="dark"] .favorites-page .favorites-subtitle,
+html[data-theme="dark"] .favorites-page .favorites-description,
+html[data-theme="dark"] .favorites-page .empty-message {
+  color: #c1b8ab !important;
+}
+
+html[data-theme="coffee"] .favorites-page p,
+html[data-theme="coffee"] .favorites-page span,
+html[data-theme="coffee"] .favorites-page .favorites-subtitle,
+html[data-theme="coffee"] .favorites-page .favorites-description,
+html[data-theme="coffee"] .favorites-page .empty-message {
+  color: #d0bdab !important;
+}
+
+html[data-theme="light"] .favorites-page p,
+html[data-theme="light"] .favorites-page span,
+html[data-theme="light"] .favorites-page .favorites-subtitle,
+html[data-theme="light"] .favorites-page .favorites-description,
+html[data-theme="light"] .favorites-page .empty-message {
+  color: #5f5a52 !important;
+}
+
+/* -------------------------
+   FOOTER NO FINAL DA PÁGINA
+   ------------------------- */
+
+/* O espaço vazio abaixo do footer vinha do fluxo vertical
+   da página. O app passa a ocupar a viewport e o footer
+   fica como último bloco, sem criar uma segunda área vazia. */
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.app {
+  min-height: 100vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* Quando o footer é filho direto do .app, ele permanece
+   no final do fluxo e não deixa uma faixa abaixo dele. */
+.app > .footer,
+.app footer.footer {
+  flex-shrink: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* O conteúdo principal pode ocupar o espaço restante.
+   Aplicado somente a elementos sem classes de overlay/drawer. */
+.app > main {
+  flex: 1 0 auto;
+  min-width: 0;
+}
+
+/* Impede margens externas do último conteúdo de criarem
+   uma faixa inesperada depois do footer. */
+.footer {
+  margin-bottom: 0 !important;
+}
+
+/* Remove espaço causado por margem do último elemento interno. */
+.footer > :last-child {
+  margin-bottom: 0 !important;
+}
+
+/* -------------------------
+   MOBILE / TABLET
+   ------------------------- */
+
+@media (max-width: 767px) {
+  .favorites-page {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+
+  .favorites-page p,
+  .favorites-page span {
+    overflow-wrap: anywhere;
+  }
+
+  .footer {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+
+/* =========================================================
+   CORREÇÃO — FONTES NOS TEMAS DARK / COFFEE
+   ========================================================= */
+
+/* Texto secundário que estava ficando escuro demais sobre
+   os fundos escuros. */
+html[data-theme="dark"] .page-wrap p,
+html[data-theme="dark"] .favorites-page p,
+html[data-theme="dark"] .favorites-page span {
+  color: #c1b8ab !important;
+}
+
+html[data-theme="coffee"] .page-wrap p,
+html[data-theme="coffee"] .favorites-page p,
+html[data-theme="coffee"] .favorites-page span {
+  color: #d0bdab !important;
+}
+
+/* Textos menores de conteúdo também acompanham o tema. */
+html[data-theme="dark"] .page-wrap .about-copy,
+html[data-theme="dark"] .page-wrap .about-text,
+html[data-theme="dark"] .page-wrap .about-description,
+html[data-theme="coffee"] .page-wrap .about-copy,
+html[data-theme="coffee"] .page-wrap .about-text,
+html[data-theme="coffee"] .page-wrap .about-description {
+  color: var(--theme-text-2) !important;
+}
+
+/* =========================================================
+   HEADER FIXO
+   ========================================================= */
+
+.header {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  z-index: 1200 !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
+
+  /* Fundo opaco evita que o conteúdo apareça através do header. */
+  background: color-mix(
+    in srgb,
+    var(--theme-page) 97%,
+    transparent
+  ) !important;
+
+  border-bottom: 1px solid var(--theme-border) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Reserva no documento o espaço ocupado pelo header. */
+.app {
+  padding-top: 54px !important;
+}
+
+/* Notebook mantém o header em uma única linha. */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .app {
+    padding-top: 54px !important;
+  }
+}
+
+/* Tablet: o header possui duas linhas por causa da navegação. */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .header {
+    min-height: 88px !important;
+  }
+
+  .app {
+    padding-top: 88px !important;
+  }
+}
+
+/* Celular: duas linhas de header. */
+@media (max-width: 767px) {
+  .header {
+    min-height: 91px !important;
+  }
+
+  .app {
+    padding-top: 91px !important;
+  }
+}
+
+/* iPhone 14 Pro / telas estreitas. */
+@media (max-width: 420px) {
+  .header {
+    min-height: 89px !important;
+  }
+
+  .app {
+    padding-top: 89px !important;
+  }
+}
+
+/* Celulares muito estreitos: mantém o conteúdo abaixo do header. */
+@media (max-width: 359px) {
+  .header {
+    min-height: 89px !important;
+  }
+
+  .app {
+    padding-top: 89px !important;
+  }
+}
+
+/* O header fixo não deve receber margem externa de componentes. */
+.header:first-child {
+  margin-top: 0 !important;
 }
